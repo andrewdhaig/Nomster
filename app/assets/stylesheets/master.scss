@@ -31,4 +31,6 @@ body {
   color: #f2f2f2; 
   font-family: 'kaushan_scriptregular', sans-serif;
   font-size: 28px;
-}
+} 
+
+@posts = Post.paginate(page: params[:page], per_page: 30)
