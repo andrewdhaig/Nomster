@@ -34,4 +34,11 @@ body {
   font-size: 28px;
 } 
 
-@posts = Post.paginate(page: params[:page], per_page: 30)
+.invalid-feedback {
+  color: #ff3333;
+  background-color: #FFEEEE;
+  border-radius: 3px;
+  padding: 2px 8px 2px 8px;
+}
+
+@posts = Post.paginate(page: params[:page], per_page: 10) 
