@@ -39,6 +39,10 @@ before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destro
   
   def destroy
     @place = Place.find(params[:id])
+    if @place.user != current_user
+      return render plain: 'Not Allowed', status: :forbidden
+    end
+
     @place.destroy
     redirect_to root_path
   end
