@@ -3,7 +3,7 @@
   <i><% @place.address %></i>
   <br/><br/>
   <p><%= @place.description %></p> 
-  <%= photo.picture.url %>
+
   
   <% if @place.latitude.present? && @place.longitude.present? %>
 
@@ -26,7 +26,7 @@
   </script>
 
   <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxXcMHw4Z_LB627Gl6kcotU2oWaf5cZiE&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?key=<%=Figaro.load["MAPS_API_KEY"]%>&callback=initMap">
   </script>
 
   <div id="map"></div>
@@ -41,6 +41,10 @@
     <% end %>
   </div>
 </div> 
+
+<% @place.photos.each do |photo| %> 
+  <%= photo.picture.url %>
+<% end %>
 
 <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
   <%= f.input :picture %>
@@ -71,6 +75,7 @@
     </div>
   </div>
 </div>
+
 
 <div class="col-10 offset-1">
   <h1 class="float-left">Comments</h1>
