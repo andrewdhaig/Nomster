@@ -43,7 +43,7 @@
 </div> 
 
 <% @place.photos.each do |photo| %> 
-  <%= photo.picture.url %>
+  <%= image_tag photo.picture.url %>
 <% end %>
 
 <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
