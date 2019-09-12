@@ -1,6 +1,5 @@
 Rails.application.configure do
-  
-  config.action_mailer.default_url_options = { host: 'nomster-andrew-haig.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'nomster-andrew-haig.herokuapp.com' 
 
   ActionMailer::Base.smtp_settings = {
     address: 'smtp.sendgrid.net',
