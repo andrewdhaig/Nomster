@@ -91,4 +91,3 @@ body {
   box-shadow: 0px 3px 8px #2a2a2a;
 }
 
-@posts = Post.paginate(page: params[:page], per_page: 10) 
