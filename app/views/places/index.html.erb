@@ -5,15 +5,15 @@
   </ol>
   <div class="carousel-inner" role="listbox">
     <div class="carousel-item active">
-      <%= image_tag 'Slider1.jpg', class: 'img-fluid' %>
+      <%= image_tag 'Slider1.jpg', class: 'd-block img-fluid' %>
       <div class="carousel-caption d-none d-md-block">
-        <h3>5 star locations</h3>
+        <h3>Date Night?</h3>
       </div>
     </div>
     <div class="carousel-item">
-      <%= image_tag 'Slider2.jpg', class: 'img-fluid' %>
+      <%= image_tag 'Slider2.jpg', class: 'd-block img-fluid' %>
       <div class="carousel-caption d-none d-md-block">
-        <h3>Or just something local</h3>
+        <h3>Or Takeout. We have what you're looking for.</h3>
       </div>
     </div>
   </div>
@@ -27,26 +27,28 @@
   </a>
 </div>
 
+
 <% @places.each do |place| %>
   <div class="booyah-box col-10 offset-1">
-    <h1><%= link_to place.name, place_path(place) %></h1><
-    <i><%= place.address %></i><br />;br />
+    <h1><%= link_to place.name, place_path(place) %></h1><br />
+    <i><%= place.address %></i><br /><br />
     <p><%= place.description %></p><br />
 
     <% if place.user.present? %>
       <small><%= place.user.email %></small>
     <% end %>
 
-    <% if place.comments.present? %>
-      <div class="col-12">
-        <blockquote>
-          <% if place.comments.last.humanized_rating.present? %>
-            <b><%= place.comments.last.humanized_rating %></b> -
-          <% end %>
-          <%= place.comments.last.message %>
-          <small><%= place.comments.last.user.email %></small>
-        </blockquote>
-      </div>
+<% if place.comments.present? %>
+<div class="col-12">
+  <blockquote>
+    <% if place.comments.last.humanized_rating.present? %>
+      <b><%= place.comments.last.humanized_rating %></b> -
     <% end %>
+    <%= place.comments.last.message %>
+    <small><%= place.comments.last.user.email %></small>
+  </blockquote>
+</div>
+<% end %>
+
   </div>
 <% end %>

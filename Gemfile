@@ -9,6 +9,8 @@ gem 'geocoder'
 
 gem 'figaro'
 
+gem 'fog-aws'
+
 gem 'jquery-rails'
 
 gem 'rails', '~> 5.2.3'
